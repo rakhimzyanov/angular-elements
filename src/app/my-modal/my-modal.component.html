@@ -1,0 +1,13 @@
+<div class="hover-div" (mouseleave)="divMouseleave()" (mouseenter)="divMouseenter()" (click)="divClick()"  >
+  <div class="hidden-div" *ngIf="isHover" >is hover</div>
+</div>
+
+
+
+<div class="overlay" [ngClass]="{'is-visible': isOpen}" >
+  <div class="modal-window">
+    <div class="modal-window__content">
+      <slot></slot>
+    </div>
+  </div>
+</div>

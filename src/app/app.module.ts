@@ -1,16 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { MyModalComponent } from './my-modal/my-modal.component';
+
+import { createCustomElement } from '@angular/elements';
+import { SuperBtnComponent } from './super-btn/super-btn.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    MyModalComponent,
+    SuperBtnComponent
   ],
   imports: [
     BrowserModule
   ],
+  entryComponents: [
+    MyModalComponent,
+    SuperBtnComponent
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: []
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private injector: Injector) {  }
+
+  ngDoBootstrap() {
+
+    const modalEl = createCustomElement(MyModalComponent, { injector: this.injector });
+    customElements.define('my-modal', modalEl);
+
+    const superBtn = createCustomElement(SuperBtnComponent, { injector: this.injector });
+    customElements.define('super-btn', superBtn);
+
+  }
+
+}
