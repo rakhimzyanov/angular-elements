@@ -4,7 +4,7 @@ const concat = require('concat');
     const files = [
         './dist/ng-shared-components/runtime-es2015.js',
         './dist/ng-shared-components/polyfills-es2015.js',
-        './dist/ng-shared-components/vendor-es2015.js',
+        // './dist/ng-shared-components/vendor-es2015.js',
         './dist/ng-shared-components/scripts.js',
         './dist/ng-shared-components/main-es2015.js',
     ]

@@ -29,7 +29,7 @@ export class AppModule {
   ngDoBootstrap() {
 
     const modalEl = createCustomElement(MyModalComponent, { injector: this.injector });
-    customElements.define('my-modal', modalEl);
+    customElements.define('ng-my-modal', modalEl);
 
     const superBtn = createCustomElement(SuperBtnComponent, { injector: this.injector });
     customElements.define('super-btn', superBtn);
