@@ -1,10 +1,16 @@
-<my-modal>test1</my-modal>
-
-<script>
-  const $modal = document.querySelector('my-modal');
-  // $modal.isOpen = true;
-</script>
-
-
+<ng-my-modal>test1 <button class="close">close  modal</button></ng-my-modal>
 
 <super-btn text="hello1">2</super-btn>
+
+<script>
+  const $modal = document.querySelector('ng-my-modal');
+
+  document.querySelector('super-btn').addEventListener('click', () => {
+    $modal.isOpen = true;
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    $modal.isOpen = false;
+  });
+</script>
+
